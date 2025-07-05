@@ -27,9 +27,11 @@ Bit	Hexadecimal value	Meaning
 Temperature Check
 vcgencmd measure_temp
 
-Flask App
+Virtual Environment
 python -m venv venv
 source venv/bin/activate
+deactivate
+
+Flask App
 pip install Flask
 python app.py
-deactivate
