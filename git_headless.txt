@@ -59,6 +59,8 @@ This will start git and name the branch 'main'.
 The default git branch name is 'master', but github's primary is 'main'. 
 So always name your primary git branch 'main' to avoid issues.
 You can also start other branches by running: git init -b <desired_branch_name>
+You should also be able to change the default git branch to 'main' by running:
+    git config --global init.defaultBranch main
 
 Set remote origin
 Now you need to connect your git repo to your github repo.
