@@ -9,6 +9,7 @@ After connected to the pi, you will need to do several things:
 - authenticate you public key in pi
 - initiate git in the directory on the pi *set the branch to 'main'*
 - set remote origin
+- create a .gitignore file
 - git add > git commit > git push
 
 Create the repo on github.com
@@ -50,5 +51,42 @@ Go back to your pi and run:
 ssh -T git@github.com
 This should result with 'Hi username! You've successfully authenticated, but GitHub does not provide shell access.'
 
+Initiate git in the directory on the pi
+To start using git in you project, initiate git in your directory
+cd into your directory then run:
+    git init -b main
+This will start git and name the branch 'main'.
+The default git branch name is 'master', but github's primary is 'main'. 
+So always name your primary git branch 'main' to avoid issues.
+You can also start other branches by running: git init -b <desired_branch_name>
 
+Set remote origin
+Now you need to connect your git repo to your github repo.
+Still in your project directory, run:
+    git remote set-url origin git@github.com:username/repo_name.git
+This should connect everything together.  
 
+Create a .gitignore file
+Before you push your git repo to github, you should create a .gitignore file.
+Any directories or files that are listed in this file will not be pushed to github.
+This is especially important if you set up a virtual environment for your project.
+If you push a venv (virtual environment) it will send thousands of files to your github repo.
+Create your .gitignore file in your project directory:
+    touch .gitignore
+Then use nano to add anything that you don't want to push.
+To add venv to .gitignore, add these lines:
+    venv/
+    .venv/
+
+Now git add > git commit > git push
+You should now be ready to run git commands
+To stage files to be committed, run:
+    git add .
+(the . stages all files in the git repo)
+To create a commit, run:
+    git commit -m 'Message to go with commit'
+To push to the main branch, run:
+    git push origin main
+To update your git repo from the github repo, run:
+    git fetch
+or git fetch main
