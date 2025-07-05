@@ -1,1 +1,7 @@
-To 
+These are my notes for myself for connecting to gihub headlessly. 
+I do this when I set up a headless raspberry pi with the desktop disabled.
+
+Raspberry Pi Setup
+When you install the os on the rpi microsd card using the rpi imager choose the advanced options. 
+There you can enter the wifi information, so the pi will be ready to ssh when it first boots.
+You need to: toggle SSH, enter the wifi, wifi password, wifi country...
