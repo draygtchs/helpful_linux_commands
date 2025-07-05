@@ -6,6 +6,11 @@ sudo raspi-config
 ifconfig
 exit
 
+Remove directory with files
+sudo rm -r directory_name
+With force command
+sudo rm -rf directory_name
+
 Nano Editor Improvements
 cd /etc
 sudo nanorc
