@@ -1,0 +1,35 @@
+
+sudo apt update
+sudo apt upgrade -y
+sudo reboot
+sudo raspi-config
+ifconfig
+exit
+
+Nano Editor Improvements
+cd /etc
+sudo nanorc
+uncomment: autoindent, set linenumbers, softwrap, tab set to 4, set mouse, match brackets
+
+Power Check
+vcgencmd get_throttled
+Returns the throttled state of the system. This is a bit pattern. A bit being set indicates the following meanings:
+Bit	Hexadecimal value	Meaning
+0 0x1 Undervoltage detected
+1 0x2 Arm frequency capped
+2 0x4 Currently throttled
+3 0x8 Soft temperature limit active
+16 0x10000 Undervoltage has occurred
+17 0x20000 Arm frequency capping has occurred
+18 0x40000 Throttling has occurred
+19 0x80000 Soft temperature limit has occurred
+
+Temperature Check
+vcgencmd measure_temp
+
+Flask App
+python -m venv venv
+source venv/bin/activate
+pip install Flask
+python app.py
+deactivate
