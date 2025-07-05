@@ -1,23 +1,20 @@
 These are my notes for myself for connecting to gihub headlessly. 
 I do this when I set up a headless raspberry pi with the desktop disabled.
 
-Raspberry Pi Setup
-When you install the os on the rpi microsd card using the rpi imager choose the advanced options. 
-There you can enter the wifi information, so the pi will be ready to ssh when it first boots.
-You need to: enable SSH, and enter the wifi SSID, password and country.
-You can leave the host as raspberrypi.local (if you change it, remember it).
+After connected to the pi, you will need to do several things:
+- create the repo on github.com and include a README.md
+- on pi set global user email and user name
+- generate ssh keys on the pi
+- add ssh public key to github SSH and GPG keys list
+- initiate git in the directory on the pi *set the branch to 'main'*
+- set remote origin
+- git add > git commit > git push
 
-Finding RPI to SSH
-I usually ssh to my pi using:   ssh user_name@ip-address
-If you set up the rpi headless, you may not know the ip address.  
-If you left the host as the default and you are on the same network, you can find the pi using this ssh command:
-ssh user_name@raspberrypi.local
-
-Changing RPI Settings from SSH
-After you establish SSH, you will only have terminal access.
-If you want/need to change system settings, you can get to the Raspberry Pi Software Configuration Tool using this command:
-sudo raspi-config
-
-Find RPI IP Address
-ifconfig
+Create the repo on github.com
+I would definitely create the repo on github.com first 
+and check the box to include a README.md, even if you don't need it.
+It is difficult to create a repo from the terminal, and pretty simple on github.com.
+Adding the README.md helps several aspects, and it creates the project with a file.
+If you start a project without a file, when you push you will have changes to the repo.
+Having changes when you push helps git and github to have changes to update.
 
