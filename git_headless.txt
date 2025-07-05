@@ -6,6 +6,7 @@ After connected to the pi, you will need to do several things:
 - on pi set global user email and user name
 - generate ssh keys on the pi
 - add ssh public key to github SSH and GPG keys list
+- authenticate you public key in pi
 - initiate git in the directory on the pi *set the branch to 'main'*
 - set remote origin
 - git add > git commit > git push
@@ -17,4 +18,37 @@ It is difficult to create a repo from the terminal, and pretty simple on github.
 Adding the README.md helps several aspects, and it creates the project with a file.
 If you start a project without a file, when you push you will have changes to the repo.
 Having changes when you push helps git and github to have changes to update.
+
+On pi set global user email and user name
+Run these commands to set global git variables;
+    git config --global user.name "Your User Name"
+    git config --global user.email "your.email@example.com"
+To see the variables, run:
+    git config --global --list
+
+Generate ssh keys on the pi
+You will need to generate ssh keys on the pi,
+so you will have a public key for authentication of your privileges.
+Run this command (I think it should be from the home directory.):
+    ssh-keygen -t rsa -C "your.email@example.com"
+Then run this command to find your keys:
+    cd ~/.ssh
+Copy the key from id_rsa.pub (include the 'ssh-rsa', don't include the '= your.email@example.com')
+
+Add ssh public key to github SSH and GPG keys list
+On github.com, sign into your account.
+Go to Settings under your account icon on the top left of the page.
+Go to SSH and GPG keys, and add a 'New SSH key'.
+Paste in the public key you copied from id_rsa.pub
+Pasting can be a challenge, you will need to delete some of the spaces.
+Just keep trying and adjusting until github.com accepts it. 
+
+Authenticate you public key in pi
+This set basically 'signs you in' with github. 
+You need to repeat this command each time you begin a programming session.
+Go back to your pi and run:
+ssh -T git@github.com
+This should result with 'Hi username! You've successfully authenticated, but GitHub does not provide shell access.'
+
+
 
