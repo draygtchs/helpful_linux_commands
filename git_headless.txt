@@ -4,4 +4,20 @@ I do this when I set up a headless raspberry pi with the desktop disabled.
 Raspberry Pi Setup
 When you install the os on the rpi microsd card using the rpi imager choose the advanced options. 
 There you can enter the wifi information, so the pi will be ready to ssh when it first boots.
-You need to: toggle SSH, enter the wifi, wifi password, wifi country...
+You need to: enable SSH, and enter the wifi SSID, password and country.
+You can leave the host as raspberrypi.local (if you change it, remember it).
+
+Finding RPI to SSH
+I usually ssh to my pi using:   ssh user_name@ip-address
+If you set up the rpi headless, you may not know the ip address.  
+If you left the host as the default and you are on the same network, you can find the pi using this ssh command:
+ssh user_name@raspberrypi.local
+
+Changing RPI Settings from SSH
+After you establish SSH, you will only have terminal access.
+If you want/need to change system settings, you can get to the Raspberry Pi Software Configuration Tool using this command:
+sudo raspi-config
+
+Find RPI IP Address
+ifconfig
+
